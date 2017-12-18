@@ -5,3 +5,17 @@ body {
   padding: 3rem 1.5rem;
   text-align: center;
 }
+
+.btn-login {
+  margin-right: 1rem;
+}
+
+.mar-top-2rem {
+  margin-top: 2rem;
+}
+
+.cen {
+  position: absolute;
+  left: 39%;
+  top: 15%;
+}
