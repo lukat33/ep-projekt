@@ -1,1 +1,11 @@
 .idea
+aria_log.00000001
+aria_log_control
+multi-master.info
+mysql.pid
+mysql_error.log
+phpmyadmin/
+mysql/
+ep_db/
+performance_schema/
+test/

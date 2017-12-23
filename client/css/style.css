@@ -10,6 +10,10 @@ body {
   margin-right: 1rem;
 }
 
+.mar-top-1rem {
+    margin-top: 1rem;
+}
+
 .mar-top-2rem {
   margin-top: 2rem;
 }
