@@ -51,11 +51,22 @@ if (isset($_POST['login'])) {
                     array_push($errors, "Email/geslo je nepravilno ali ne obstaja");
                 } elseif ($hashedPwdCheck == true) {
                     // Successful login, user found in database
-                    echo "Success2";
                     $_SESSION['u_id'] = $row['id'];
                     $_SESSION['u_firstname'] = $row['firstname'];
                     $_SESSION['u_lastname'] = $row['lastname'];
                     $_SESSION['u_email'] = $row['email'];
+                    $_SESSION['u_role'] = $row['role'];
+                    if ($row['role'] == "customer") {
+                        $id = $row['id'];
+                        $query = "SELECT * FROM contact_data WHERE user_id='$id'";
+                        $result = mysqli_query($conn, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        $_SESSION['u_street'] = $row['street'];
+                        $_SESSION['u_street_number'] = $row['street_number'];
+                        $_SESSION['u_city'] = $row['city'];
+                        $_SESSION['u_postal_code'] = $row['postal_code'];
+                        $_SESSION['u_phone'] = $row['phone'];
+                    }
                     header("Location: ../client/index.php");
                     exit();
                 }

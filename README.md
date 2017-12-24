@@ -7,17 +7,17 @@ Seminarska naloga EP.
 **Administrator:**
 - firstname: Admin
 - lastname: Administratovic
-- email: admin@admin.si
-- password: admin
+- email: admin@admin.com
+- password: admin1
   
 **Prodajalec:**
 - firstname: Prodajalec
 - lastname: Ep
-- email: pe@gmail.si
+- email: pe@gmail.com
 - password: eptest
     
 **Stranka:**
 - firstname: Ep
 - lastname: Test
-- email: ep@gmail.si
+- email: ep@gmail.com
 - password: eptest

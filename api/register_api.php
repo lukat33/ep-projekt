@@ -81,7 +81,7 @@ if (isset($_POST['register'])) {
             // Encrypt password with md5
             $hashedPassword = password_hash($password_1, PASSWORD_DEFAULT);
             $query = "INSERT INTO users (firstname, lastname, email, password, role, activated)
-                      VALUES ('$firstname', '$lastname', '$email', '$hashedPassword', 'customer', '1')";
+                      VALUES ('$firstname', '$lastname', '$email', '$hashedPassword', 'customer', '0')";
             mysqli_query($conn, $query);
 
             // Get his ID to insert his data into contact_data table

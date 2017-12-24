@@ -9,6 +9,13 @@
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: ../client/index.php");
+    header("Location: ../client/login.php");
+    exit();
+}
+
+function logout() {
+    session_unset();
+    session_destroy();
+    header("Location: ../client/login.php");
     exit();
 }
