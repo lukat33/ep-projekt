@@ -42,10 +42,6 @@ if (isset($_POST['register'])) {
             $firstname = $lastname = "";
             array_push($errors, "Uporaba prepovedanih znakov");
         }
-        if (!is_numeric($street_number)) {
-            $street_number = "";
-            array_push($errors, "Hišna številka mora vsebovati samo numerične znake");
-        }
         if (!is_numeric($postal_code)) {
             $postal_code = "";
             array_push($errors, "Poštna številka mora vsebovati samo numerične znake");
@@ -83,11 +79,21 @@ if (isset($_POST['register'])) {
         } else {
             // Insert new user into database
             // Encrypt password with md5
-            $password = md5($password_1);
-            $query = "INSERT INTO users (firstname, lastname, email, password)
-                      VALUES ('$firstname', '$lastname', '$email', '$password')";
-
+            $hashedPassword = password_hash($password_1, PASSWORD_DEFAULT);
+            $query = "INSERT INTO users (firstname, lastname, email, password, role, activated)
+                      VALUES ('$firstname', '$lastname', '$email', '$hashedPassword', 'customer', '1')";
             mysqli_query($conn, $query);
+
+            // Get his ID to insert his data into contact_data table
+            $query = "SELECT id FROM users WHERE email='$email'";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            $id = $row['id'];
+
+            $query = "INSERT INTO contact_data (user_id, street, street_number, city, postal_code, phone)
+                      VALUES ('$id', '$street', '$street_number', '$city', '$postal_code', '$phone')";
+            mysqli_query($conn, $query);
+
             $firstname = $lastname = $email = $street = $street_number = $city = $postal_code = $phone = $password_1 = $password_2 = "";
             $registerSuccess =
                 '<div class="alert alert-success mar-top-2rem">

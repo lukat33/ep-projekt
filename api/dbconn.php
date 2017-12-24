@@ -6,9 +6,11 @@
  * Time: 14:41
  */
 // establish database connection
+
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "ep";
+$dbName = "ep_db";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+mysqli_set_charset($conn, 'utf8');

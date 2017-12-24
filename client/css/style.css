@@ -10,6 +10,28 @@ body {
   margin-right: 1rem;
 }
 
+.login-form {
+  margin-left:2rem;
+}
+
+#login-title {
+  margin-left: 7rem;
+}
+
+#login-btn {
+  margin-left: 5rem;
+}
+
+#register-title {
+  margin-left: 12rem;
+}
+
+#register-btn {
+  margin-left: 13rem;
+}
+#profile-title {
+  margin-left: 11rem;
+}
 .mar-top-1rem {
     margin-top: 1rem;
 }

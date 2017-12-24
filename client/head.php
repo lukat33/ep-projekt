@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once("../api/authorized_api.php");
+?>
 <head>
     <meta charset="utf-8">
     <title><?php echo($title); ?></title>
@@ -13,6 +17,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/tether.js"></script>
+    <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </head>

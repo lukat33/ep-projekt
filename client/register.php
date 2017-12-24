@@ -3,6 +3,7 @@
     $title = 'Register';
     $currentPage = 'register';
     $registerSuccess = "";
+    $page_type = 'public';
     include('head.php');
     include('../api/register_api.php');
 ?>
@@ -11,13 +12,13 @@
     <?php include('navbar.php'); ?>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-3"><h2>Registracija</h2></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3" id="register-title"><h2>Registracija</h2></div>
         </div>
 
         <form action="register.php" method="POST">
             <div class="row mar-top-2rem">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Ime" value="<?php echo $firstname; ?>">
@@ -31,16 +32,16 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>">
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <input type="password" name="password_1" id="password_1" class="form-control" placeholder="Geslo" value="<?php echo $password_1; ?>">
@@ -54,7 +55,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <input type="text" name="street" id="street" class="form-control" placeholder="Ulica" value="<?php echo $street; ?>">
@@ -68,7 +69,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <input type="text" name="city" id="city" class="form-control" placeholder="Mesto" value="<?php echo $city; ?>">
@@ -82,22 +83,20 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <input type="tel" name="phone" id="phone" class="form-control" placeholder="Telefonska številka" value="<?php echo $phone; ?>">
                     </div>
-                    <button type="submit" name="register" class="btn btn-default">Registracija</button>
+                    <button type="submit" name="register" class="btn btn-default" id="register-btn">Registracija</button>
                     <!-- Validation errors -->
                     <?php
-                    include('errors.php');
-                    echo $registerSuccess;
+                        include('errors.php');
+                        echo $registerSuccess;
                     ?>
                 </div>
             </div>
-            </div>
         </form>
     </div>
-
 </body>
 </html>

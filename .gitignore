@@ -6,6 +6,4 @@ mysql.pid
 mysql_error.log
 phpmyadmin/
 mysql/
-ep_db/
 performance_schema/
-test/
