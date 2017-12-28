@@ -5,14 +5,6 @@ $email = "";
 $password = "";
 $errors = array();
 
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-else {
-//    echo  mysqli_get_host_info($conn);
-}
-
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);

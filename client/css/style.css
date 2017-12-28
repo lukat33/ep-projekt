@@ -29,9 +29,15 @@ body {
 #register-btn {
   margin-left: 13rem;
 }
+
 #profile-title {
   margin-left: 11rem;
 }
+
+#admin-title {
+  margin-left: 10rem;
+}
+
 .mar-top-1rem {
     margin-top: 1rem;
 }

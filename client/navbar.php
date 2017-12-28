@@ -19,6 +19,12 @@
                         '<li class="nav-item">
                             <a class="nav-link" href="myprofile.php">Moj profil</a>
                          </li>';
+                    if ($_SESSION['u_role'] == "admin") {
+                        echo
+                        '<li class="nav-item">
+                            <a class="nav-link" href="adminpanel.php">Admin</a>
+                         </li>';
+                    }
                 }
             ?>
         </ul>

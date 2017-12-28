@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- Theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <!-- Custom styles -->
@@ -19,4 +20,6 @@
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
