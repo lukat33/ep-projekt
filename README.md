@@ -23,3 +23,7 @@ Seminarska naloga EP.
 - lastname: Test
 - email: ep@gmail.com
 - password: eptest
+
+TO DO:
+- poskrbi za XSS
+- napiši funkcije za vnos elementov v bazo

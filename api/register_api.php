@@ -66,7 +66,6 @@ if (isset($_POST['register'])) {
             array_push($errors, "Gesli se ne ujemata");
         }
     }
-
     // No errors
     if (count($errors) == 0) {
         // Check if user already exists in database
