@@ -2,7 +2,9 @@
 
 Seminarska naloga EP.
 
-**Baza:** ep_db
+**Baza:** 
+- name: ep_db
+- password: ep
 
 **Administrator:**
 - firstname: Admin
