@@ -9,14 +9,6 @@ $phone = "";
 $password_1 = $password_2 = "";
 $errors = array();
 
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-else {
-//    echo  mysqli_get_host_info($conn);
-}
-
 if (isset($_POST['register'])) {
     $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
