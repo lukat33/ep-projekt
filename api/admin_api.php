@@ -20,7 +20,6 @@ if (isset($_POST['modal_add_form'])) {
 
     $query = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $query);
-    echo mysqli_num_rows($result);
 
     if (mysqli_num_rows($result) > 0) exit;
 
@@ -34,7 +33,7 @@ if (isset($_POST['modal_add_form'])) {
     $email = mysqli_real_escape_string($conn, $_POST['modal_email']);
     $password = mysqli_real_escape_string($conn, $_POST['modal_password_1']);
     $status = mysqli_real_escape_string($conn, $_POST['modal_status']);
-    echo $status;
+
     $query = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);

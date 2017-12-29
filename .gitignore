@@ -7,4 +7,3 @@ mysql_error.log
 phpmyadmin/
 mysql/
 performance_schema/
-dbconn.php

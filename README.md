@@ -3,8 +3,10 @@
 Seminarska naloga EP.
 
 **Baza:** 
-- name: ep_db
-- password: ep
+- servername: localhost
+- db name: ep_db
+- username: root
+- password root
 
 **Administrator:**
 - firstname: Admin

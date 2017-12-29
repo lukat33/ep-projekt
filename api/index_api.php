@@ -8,14 +8,8 @@
 
 require_once 'dbconn.php';
 
-if (mysqli_connect_errno())
-{
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
 $query = "SELECT * FROM article";
 $articles = mysqli_query($conn, $query);
-
 
 echo '<div class="row top-buffer">';
 $i = 0;

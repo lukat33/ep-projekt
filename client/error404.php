@@ -17,7 +17,6 @@
         <div class="starter-template">
             <h1>Napaka 404</h1>
             <p class="lead">Ups, nekaj je šlo narobe.<br></p>
-            <?php echo $napaka; ?>
         </div>
     </div>
 </body>
