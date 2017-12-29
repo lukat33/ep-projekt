@@ -51,3 +51,24 @@ body {
   left: 39%;
   top: 15%;
 }
+
+.article {
+  border: 1px solid lightgrey;
+  background-color: #f1f1f1;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.article-img {
+  padding: 0.25rem;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  max-width: 100%;
+  height: auto;
+}
+
+.top-buffer { margin-top:20px; }
