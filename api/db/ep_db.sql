@@ -30,8 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `article` (
   `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   `picture` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
-  `price` int(100) NOT NULL,
+  `price` FLOAT(10,2) NOT NULL,
   `description` varchar(1000) COLLATE utf8_slovenian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
@@ -106,6 +107,13 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `role`,
 (2, 'Admin', 'Administratovic', 'admin@admin.com', '$2y$10$r1VoxoLkcICFyui1VaEKru43QEfLAd9xO6wSnc8/0tYXAZc2Tjxj2', 'admin', 1),
 (3, 'Ep', 'Testa', 'ep@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'customer', 1),
 (4, 'Prodajalec', 'Ep', 'pe@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'salesman', 1);
+
+INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(1, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(2, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(3, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(4, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(5, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
 
 --
 -- Indeksi zavrženih tabel
