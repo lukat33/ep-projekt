@@ -1,8 +1,17 @@
-# ep-projekt
+#Seminarska naloga EP
 
-Seminarska naloga EP.
+**POSTOPEK ZA BAZO**
 
-**Baza:** 
+mysql -h 127.0.0.1 -u root -p\
+CREATE DATABASE ep_db;\
+exit
+
+// se postavis v direktorij ep-projekt/api/db\
+mysql -h localhost -u root -p ep_db < ep_db.sql\
+mysql -h 127.0.0.1 -u root -p
+
+
+##**Baza:** 
 - servername: localhost
 - db name: ep_db
 - username: root
@@ -26,6 +35,6 @@ Seminarska naloga EP.
 - email: ep@gmail.com
 - password: eptest
 
-TO DO:
+##TO DO:
 - poskrbi za XSS
 - napiši funkcije za vnos elementov v bazo
