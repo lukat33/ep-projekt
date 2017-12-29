@@ -9,7 +9,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "";
+$dbPassword = "andrew0024";
 $dbName = "ep_db";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
