@@ -3,8 +3,8 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" onclick="reset_add_form()" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Dodaj</h4>
+                <button type="button" class="close" onclick="reset_add_form()" data-dismiss="modal">&times;</button>
             </div>
             <form id="modal_add_form">
                 <div class="modal-body">

@@ -4,8 +4,8 @@
         <div class="modal-content">
             <div id="lineNumber" style="display: none;"></div>
             <div class="modal-header">
-                <button type="button" class="close" onclick="reset_form()" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Uredi</h4>
+                <button type="button" class="close" onclick="reset_form()" data-dismiss="modal">&times;</button>
             </div>
             <form id="modal_form">
                 <div class="modal-body">
