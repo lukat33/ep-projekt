@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
     include_once("../api/authorized_api.php");
 ?>

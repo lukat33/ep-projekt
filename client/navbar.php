@@ -31,6 +31,7 @@
         <?php
             // If user is logged in
             if (isset($_SESSION['u_id'])) {
+                echo '<a href="basket.php" class="btn btn-login btn-primary" role="button">Košarica</a>';
                 echo '<a href="index.php?logout" class="btn btn-login btn-warning" role="button">Odjava</a>';
             } else {
                 // No user is logged in
