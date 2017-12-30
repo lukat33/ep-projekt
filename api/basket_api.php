@@ -10,16 +10,16 @@ include_once 'dbconn.php';
 
 
 if (isset($_POST["action"])) {
-
+    session_start();
     if ($_POST["action"] == "remove")
     {
         $id = mysqli_real_escape_string($conn, $_POST['id']);
         $record_id = find_record($id, $_SESSION["basket_articles"]);
-        echo json_encode($id);
+
 
         if ($record_id != -1)
         {
-            unset($_SESSION["basket_articles"][$record_id]);
+            $_SESSION["basket_articles"] = pop($record_id, $_SESSION["basket_articles"]);
         }
     }
     elseif ($_POST["action"] == "add") {
@@ -41,46 +41,51 @@ if (isset($_POST["action"])) {
                 "id" => $id,
                 "quantity" => 1
             );
-            echo json_encode($_SESSION["basket_articles"]);
         }
     }
-} else {
+    elseif ($_POST["action"] == "quantity")
+    {
+        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
+        $record_id = find_record($id, $_SESSION["basket_articles"]);
+        $_SESSION["basket_articles"][$record_id]["quantity"] = $quantity;
+    }
+}
+else {
     render($conn);
 }
 
 
 function render($conn)
 {
-    echo json_encode($_SESSION["basket_articles"]);
     if (isset($_SESSION["basket_articles"]))
     {
-        echo json_encode($_SESSION["basket_articles"]);
         $basket = get_basket_content($conn, $_SESSION["basket_articles"]);
-        $total = get_total_basket_price($basket);
-
+        $total = 0;
         echo '</thead>
                         <tbody>';
 
         for ($i = 0; $i < sizeof($basket); $i++)
         {
             $article = $basket[$i];
+            $total += $article["price"] * $article["quantity"];
+
             echo '<tr>
                 <td data-th="Product">
                     <div class="row">
-                        <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+                        <div class="col-sm-2 hidden-xs"><img src="images/'. $article["picture"] .'" alt="..." class="img-responsive img-thumb"/></div>
                         <div class="col-sm-10">
                             <h4 class="nomargin">'. $article["name"] .'</h4>
                             <p>'. $article["description"] .'</p>
                         </div>
                     </div>
                 </td>
-                <td data-th="Price">'. $article["price"] .'€</td>
+                <td class="price" id="'. $article["id"] .'"  data-th="Price">'. $article["price"] .'€</td>
                 <td data-th="Quantity">
-                    <input type="number" class="form-control text-center" value="'. $article["quantity"] .'">
+                    <input min="0" article_id="'. $article["id"] .'" type="number" class="form-control text-center quantity-selector" value="'. $article["quantity"] .'">
                 </td>
-                <td data-th="Subtotal" class="text-center">'. $article["price"] * $article["quantity"] .'€</td>
+                <td data-th="Subtotal" id="'. $article["id"] .'" class="text-center subtotal">'. $article["price"] * $article["quantity"] .'€</td>
                 <td class="actions" data-th="">
-                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
                     <button onclick="removeArticle('. $article["id"] .')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
                 </td>
             </tr>';
@@ -105,10 +110,20 @@ function render($conn)
                         <tr>
                             <td><a href="index.php" class="btn tfn-warning"><i class="fa fa-angle-left"></i> Nadaljujte z nakupovanjem</a></td>
                             <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Skupaj '. $total .'€</strong></td>
+                            <td class="hidden-xs text-center total"><strong>Skupaj '. $total .'€</strong></td>
                             <td><a href="#" class="btn btn-success btn-block">Naprej <i class="fa fa-angle-right"></i></a></td>
                         </tr>
                     </tfoot>';
+}
+
+function pop($index, $array) {
+    $out = array();
+
+    for ($i = 0; $i < sizeof($array); $i++)
+    {
+        if ($i != $index) $out[] = $array[$i];
+    }
+    return $out;
 }
 
 function get_total_basket_price($basket) {

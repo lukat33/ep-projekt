@@ -1,10 +1,10 @@
 <html>
 <?php
-$title = 'Košarica';
-$currentPage = 'basket';
-$page_type = 'private';
-include('head.php');
-include_once('../api/logout_api.php');
+    $title = 'Košarica';
+    $currentPage = 'basket';
+    $page_type = 'private';
+    include('head.php');
+    include_once('../api/logout_api.php');
 ?>
 
     <head>
