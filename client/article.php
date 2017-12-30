@@ -13,7 +13,6 @@ include('head.php');
 include_once('../api/logout_api.php');
 ?>
 
-
     <body>
         <?php include('navbar.php'); ?>
 
