@@ -33,7 +33,8 @@ CREATE TABLE `article` (
   `name` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   `picture` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   `price` FLOAT(10,2) NOT NULL,
-  `description` varchar(1000) COLLATE utf8_slovenian_ci NOT NULL
+  `description` varchar(1000) COLLATE utf8_slovenian_ci NOT NULL,
+  `activated` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 -- --------------------------------------------------------
@@ -56,7 +57,7 @@ CREATE TABLE `contact_data` (
 --
 
 INSERT INTO `contact_data` (`user_id`, `street`, `street_number`, `city`, `postal_code`, `phone`) VALUES
-(3, 'Sezamova ulica', 32, 'Sezamovica', 3311, '090333123');
+(1, 'Sezamova ulica', 32, 'Sezamovica', 3311, '090333123');
 
 -- --------------------------------------------------------
 
@@ -104,16 +105,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `role`, `activated`) VALUES
-(2, 'Admin', 'Administratovic', 'admin@admin.com', '$2y$10$r1VoxoLkcICFyui1VaEKru43QEfLAd9xO6wSnc8/0tYXAZc2Tjxj2', 'admin', 1),
-(3, 'Ep', 'Testa', 'ep@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'customer', 1),
-(4, 'Prodajalec', 'Ep', 'pe@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'salesman', 1);
+(0, 'Admin', 'Administratovic', 'admin@admin.com', '$2y$10$r1VoxoLkcICFyui1VaEKru43QEfLAd9xO6wSnc8/0tYXAZc2Tjxj2', 'admin', 1),
+(1, 'Ep', 'Testa', 'ep@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'customer', 1),
+(2, 'Prodajalec', 'Ep', 'pe@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'salesman', 1);
 
-INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
-INSERT INTO article VALUES(1, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
-INSERT INTO article VALUES(2, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
-INSERT INTO article VALUES(3, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
-INSERT INTO article VALUES(4, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
-INSERT INTO article VALUES(5, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.");
+INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(1, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(2, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(3, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(4, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(5, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
 
 --
 -- Indeksi zavrženih tabel

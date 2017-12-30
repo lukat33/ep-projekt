@@ -6,45 +6,25 @@ body {
   text-align: center;
 }
 
-.btn-login {
-  margin-right: 1rem;
-}
+.btn-login {  margin-right: 1rem; }
 
-.login-form {
-  margin-left:2rem;
-}
+.login-form {  margin-left:2rem; }
 
-#login-title {
-  margin-left: 7rem;
-}
+#login-title { margin-left: 7rem; }
 
-#login-btn {
-  margin-left: 5rem;
-}
+#login-btn { margin-left: 5rem; }
 
-#register-title {
-  margin-left: 12rem;
-}
+#register-title { margin-left: 12rem; }
 
-#register-btn {
-  margin-left: 13rem;
-}
+#register-btn { margin-left: 13rem; }
 
-#profile-title {
-  margin-left: 11rem;
-}
+#profile-title { margin-left: 11rem; }
 
-#admin-title {
-  margin-left: 10rem;
-}
+#admin-title { margin-left: 10rem; }
 
-.mar-top-1rem {
-    margin-top: 1rem;
-}
+.mar-top-1rem { margin-top: 1rem; }
 
-.mar-top-2rem {
-  margin-top: 2rem;
-}
+.mar-top-2rem { margin-top: 2rem; }
 
 .cen {
   position: absolute;
@@ -72,3 +52,34 @@ body {
 }
 
 .top-buffer { margin-top:20px; }
+
+.input-euro {  position: relative; }
+
+.input-euro.right input {
+  padding-right:18px;
+  text-align:end;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+#img-upload{
+  width: 100%;
+}
