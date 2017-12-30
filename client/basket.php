@@ -21,7 +21,7 @@
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th style="width:100%">Izdelek</th>
+                            <th style="width:50%">Izdelek</th>
                             <th style="width:10%">Cena</th>
                             <th style="width:8%">Količina</th>
                             <th style="width:22%" class="text-center">Skupna cena</th>
