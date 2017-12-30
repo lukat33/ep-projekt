@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($articles))
                         <img src="images/'. $row["picture"] .'" class="article-img">
                     </div>
                 <div class="col-md-6">
-                    <h3>'. $row["name"] .'</h3>
+                    <a href="article.php?id='. $row["id"] .'"><h3>'. $row["name"] .'</h3></a>
                     <p>'. $row["description"] .'</p>
                     <span><b>Cena: '. $row["price"] .'€</b></span>
                     <hr>
