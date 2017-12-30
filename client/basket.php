@@ -19,24 +19,24 @@ include_once('../api/logout_api.php');
             <div class="container">
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
-                    <tr>
-                        <th style="width:100%">Izdelek</th>
-                        <th style="width:10%">Cena</th>
-                        <th style="width:8%">Količina</th>
-                        <th style="width:22%" class="text-center">Skupna cena</th>
-                        <th style="width:10%"></th>
-                    </tr>
+                        <tr>
+                            <th style="width:100%">Izdelek</th>
+                            <th style="width:10%">Cena</th>
+                            <th style="width:8%">Količina</th>
+                            <th style="width:22%" class="text-center">Skupna cena</th>
+                            <th style="width:10%"></th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        <?php include('../api/basket_api.php'); ?>
-                    </tbody>
+                        <tbody>
+                            <?php include('../api/basket_api.php'); ?>
+                        </tbody>
                     <tfoot>
-                    <tr>
-                        <td><a href="index.php" class="btn tfn-warning"><i class="fa fa-angle-left"></i> Nadaljujte z nakupovanjem</a></td>
-                        <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Skupaj $1.99</strong></td>
-                        <td><a href="#" class="btn btn-success btn-block">Naprej <i class="fa fa-angle-right"></i></a></td>
-                    </tr>
+                        <tr>
+                            <td><a href="index.php" class="btn tfn-warning"><i class="fa fa-angle-left"></i> Nadaljujte z nakupovanjem</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Skupaj $1.99</strong></td>
+                            <td><a href="#" class="btn btn-success btn-block">Naprej <i class="fa fa-angle-right"></i></a></td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
