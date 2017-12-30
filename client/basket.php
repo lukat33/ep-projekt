@@ -9,6 +9,7 @@ include_once('../api/logout_api.php');
 
     <head>
         <link rel="stylesheet" type="text/css" href="css/basket.css">
+        <script type="text/javascript" src="js/basket.js" ></script>
     </head>
 
     <body>
@@ -26,18 +27,7 @@ include_once('../api/logout_api.php');
                             <th style="width:22%" class="text-center">Skupna cena</th>
                             <th style="width:10%"></th>
                         </tr>
-                    </thead>
-                        <tbody>
-                            <?php include('../api/basket_api.php'); ?>
-                        </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><a href="index.php" class="btn tfn-warning"><i class="fa fa-angle-left"></i> Nadaljujte z nakupovanjem</a></td>
-                            <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Skupaj $1.99</strong></td>
-                            <td><a href="#" class="btn btn-success btn-block">Naprej <i class="fa fa-angle-right"></i></a></td>
-                        </tr>
-                    </tfoot>
+                    <?php include('../api/basket_api.php'); ?>
                 </table>
             </div>
         </div>
