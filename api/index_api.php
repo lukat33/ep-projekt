@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($articles))
                     <p>'. $row["description"] .'</p>
                     <span><b>Cena: '. $row["price"] .'€</b></span>
                     <hr>
-                    <button type="button" class="btn btn-default">Dodaj v košarico</button>
+                    <button onclick="addToBasketAction('. $row["id"] .')" type="button" class="btn btn-default">Dodaj v košarico</button>
                 </div>
                </div>
             </div>

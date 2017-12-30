@@ -7,6 +7,11 @@
     include_once('../api/logout_api.php');
 ?>
 
+<head>
+    <script type="text/javascript" src="js/basket.js" ></script>
+</head>
+
+
 <body>
 
     <?php include('navbar.php'); ?>
