@@ -83,3 +83,8 @@ body {
 #img-upload{
   width: 100%;
 }
+
+.img-thumb {
+  max-width: 100%;
+  max-height: 60px;
+}

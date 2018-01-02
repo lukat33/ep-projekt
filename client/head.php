@@ -23,5 +23,6 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/dodajSliko.js"></script>
+    <script type="text/javascript" src="js/basket.js" ></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>

@@ -24,6 +24,11 @@
                             '<li class="nav-item '.$active.'">
                             <a class="nav-link" href="article_add.php">Dodaj artikel</a>
                          </li>';
+                        if ($currentPage == "salesman_panel") $active = "active"; else $active = "";
+                        echo
+                            '<li class="nav-item '.$active.'">
+                            <a class="nav-link" href="salesman_panel.php">Prodajalec</a>
+                         </li>';
                     }
                     if ($_SESSION['u_role'] == "admin") {
                         if ($currentPage == "adminpanel") $active = "active"; else $active = "";
@@ -38,7 +43,8 @@
         <?php
             // If user is logged in
             if (isset($_SESSION['u_id'])) {
-                echo '<a href="basket.php" class="btn btn-login btn-primary" role="button">Košarica</a>';
+                if ($_SESSION['u_role'] == "customer")
+                    echo '<a href="basket.php" class="btn btn-login btn-primary" role="button">Košarica</a>';
                 echo '<a href="index.php?logout" class="btn btn-login btn-warning" role="button">Odjava</a>';
             } else {
                 // No user is logged in
