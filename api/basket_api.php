@@ -143,7 +143,7 @@ function get_basket_content($conn, $basket)
         for ($i = 0; $i < sizeof($basket); $i++)
         {
             $id = $basket[$i]["id"];
-            $query = "SELECT * FROM article WHERE id='. $id .'";
+            $query = "SELECT * FROM article WHERE id='$id'";
             $res = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($res))
             {
