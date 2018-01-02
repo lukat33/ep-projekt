@@ -41,18 +41,15 @@ if (isset($_POST['modal_add_form'])) {
     // Update user in database
     $id = $row['id'];
     // If we are changing password
+    $pwd = "";
     if (strlen($password) > 0) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "UPDATE users
-              SET firstname='$firstname', lastname='$lastname', email='$email', password='$hashedPassword', activated='$status'
-              WHERE id = $id";
-        mysqli_query($conn, $query);
-    } else {
-        $query = "UPDATE users
-              SET firstname='$firstname', lastname='$lastname', email='$email', activated='$status'
-              WHERE id = $id";
-        mysqli_query($conn, $query);
+        $pwd = "password='$hashedPassword',";
     }
+    $query = "UPDATE users
+              SET firstname='$firstname', lastname='$lastname', email='$email', $pwd activated='$status'
+              WHERE id = $id";
+    mysqli_query($conn, $query);
 
 } else {
     while($row = mysqli_fetch_array($result)){

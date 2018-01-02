@@ -109,12 +109,13 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `role`,
 (1, 'Ep', 'Testa', 'ep@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'customer', 1),
 (2, 'Prodajalec', 'Ep', 'pe@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'salesman', 1);
 
-INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
-INSERT INTO article VALUES(1, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
-INSERT INTO article VALUES(2, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
-INSERT INTO article VALUES(3, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
-INSERT INTO article VALUES(4, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
-INSERT INTO article VALUES(5, "Paper Craft" , "cover.png", 12.99, "This is a description of the product.", 1);
+INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.55, "This is a description of the product.", 1);
+INSERT INTO article VALUES(1, "As I Descended" , "as-i-descended.jpg", 24.37, "Maria Lyon and Lily Boiten are their school’s ultimate power couple—even if no one knows it but them. Only one thing stands between them and their perfect future: campus superstar Delilah Dufrey.", 1);
+INSERT INTO article VALUES(2, "Game of Thrones" , "GameOfThrones1.jpg", 19.99, "A Game of Thrones is the first novel in A Song of Ice and Fire, a series of fantasy novels by American author George R. R. Martin.", 1);
+INSERT INTO article VALUES(3, "Enceladus" , "enceladus.jpg", 31.99, "Hard science fiction by Brandon Q. Morris.", 1);
+INSERT INTO article VALUES(4, "The Price of Dawn" , "priceofdawn.jpg", 20.41, "The adventures of Staff Sergeant Max Mayhem, now available as a perk for people who donate to the Harry Potter Alliance's Equality FTW 2013 fundraiser!", 1);
+INSERT INTO article VALUES(5, "Beast" , "beast-design-leo-nickolls.jpg", 18.68, "Tall, meaty, muscle-bound, and hairier than most throw rugs, Dylan doesn’t look like your average fifteen-year-old, so high school has not been kind to him.", 1);
+INSERT INTO article VALUES(6, "The Witching Hour" , "thewitchinghour.jpg", 26.72, "Witching Hour, The, by Augustus M. Thomas (1907). Jack Brookfield, a professional gambler, in whose rooms the play opens, is believed by his friends to be possessed of an extraordinary personal magnetism.", 1);
 
 --
 -- Indeksi zavrženih tabel

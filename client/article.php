@@ -1,4 +1,3 @@
-<html>
 <?php
 /**
  * Created by PhpStorm.
@@ -12,10 +11,9 @@ $page_type = 'public';
 include('head.php');
 include_once('../api/logout_api.php');
 ?>
-
+<html>
     <body>
         <?php include('navbar.php'); ?>
-
         <div class="container">
            <?php include('../api/article_api.php'); ?>
         </div>

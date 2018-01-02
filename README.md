@@ -11,7 +11,7 @@ mysql -h localhost -u root -p ep_db < ep_db.sql\
 mysql -h 127.0.0.1 -u root -p
 
 
-##**Baza:** 
+**Baza:** 
 - servername: localhost
 - db name: ep_db
 - username: root
@@ -35,6 +35,7 @@ mysql -h 127.0.0.1 -u root -p
 - email: ep@gmail.com
 - password: eptest
 
-##TO DO:
+#TO DO:
 - poskrbi za XSS
 - napiši funkcije za vnos elementov v bazo
+- ne prikaži izdelkov, ki so deaktivirani

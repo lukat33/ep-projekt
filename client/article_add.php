@@ -12,7 +12,6 @@
     include_once('../api/article_add_api.php');
 ?>
 <html>
-
 <body>
     <?php include('navbar.php'); ?>
 

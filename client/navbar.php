@@ -24,6 +24,11 @@
                             '<li class="nav-item '.$active.'">
                             <a class="nav-link" href="article_add.php">Dodaj artikel</a>
                          </li>';
+                        if ($currentPage == "salesman_panel") $active = "active"; else $active = "";
+                        echo
+                            '<li class="nav-item '.$active.'">
+                            <a class="nav-link" href="salesman_panel.php">Prodajalec</a>
+                         </li>';
                     }
                     if ($_SESSION['u_role'] == "admin") {
                         if ($currentPage == "adminpanel") $active = "active"; else $active = "";
