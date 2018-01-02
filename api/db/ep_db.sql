@@ -109,13 +109,23 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `role`,
 (1, 'Ep', 'Testa', 'ep@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'customer', 1),
 (2, 'Prodajalec', 'Ep', 'pe@gmail.com', '$2y$10$VGoGIk7qOkvMx39lB/MbEeunFbctpIH6kmtwPCnwpwDtZYbMwOZje', 'salesman', 1);
 
-INSERT INTO article VALUES(0, "Paper Craft" , "cover.png", 12.55, "This is a description of the product.", 1);
 INSERT INTO article VALUES(1, "As I Descended" , "as-i-descended.jpg", 24.37, "Maria Lyon and Lily Boiten are their school’s ultimate power couple—even if no one knows it but them. Only one thing stands between them and their perfect future: campus superstar Delilah Dufrey.", 1);
 INSERT INTO article VALUES(2, "Game of Thrones" , "GameOfThrones1.jpg", 19.99, "A Game of Thrones is the first novel in A Song of Ice and Fire, a series of fantasy novels by American author George R. R. Martin.", 1);
-INSERT INTO article VALUES(3, "Enceladus" , "enceladus.jpg", 31.99, "Hard science fiction by Brandon Q. Morris.", 1);
+INSERT INTO article VALUES(3, "Enceladus" , "enceladus.jpg", 31.99, "Im Jahre 2031 finden Forscher in den Signalen einer Roboter-Sonde, die den Saturnmond Enceladus studiert, eindeutige Spuren biologischer Aktivität. Beweise für außerirdisches Leben – eine Weltsensation. Fünfzehn Jahre später macht sich ein eilig dafür gebautes, bemanntes Raumschiff auf die weite Reise zum Ringplaneten. Der internationalen Crew stehen nicht nur schwierige siebenundzwanzig Monate bevor: Falls sie es ohne Zwischenfall bis zum Enceladus schafft, muss sie mit einem Bohrschiff den kilometerdicken Eispanzer des Mondes durchdringen. Denn Leben kann nur am Grunde des ewig dunklen Salz-Ozeans existieren, der sich vor Milliarden Jahren in der Schale des Eismondes gebildet hat, sagen die Astrobiologen. Doch schon kurz nach dem Start macht eine Katastrophe ein glückliches Ende des Abenteuers höchst unwahrscheinlich. Im Anhang: »Die neue Biografie des Enceladus« – was die Forschung über den Saturnmond weiß.", 1);
 INSERT INTO article VALUES(4, "The Price of Dawn" , "priceofdawn.jpg", 20.41, "The adventures of Staff Sergeant Max Mayhem, now available as a perk for people who donate to the Harry Potter Alliance's Equality FTW 2013 fundraiser!", 1);
 INSERT INTO article VALUES(5, "Beast" , "beast-design-leo-nickolls.jpg", 18.68, "Tall, meaty, muscle-bound, and hairier than most throw rugs, Dylan doesn’t look like your average fifteen-year-old, so high school has not been kind to him.", 1);
 INSERT INTO article VALUES(6, "The Witching Hour" , "thewitchinghour.jpg", 26.72, "Witching Hour, The, by Augustus M. Thomas (1907). Jack Brookfield, a professional gambler, in whose rooms the play opens, is believed by his friends to be possessed of an extraordinary personal magnetism.", 1);
+INSERT INTO article VALUES(7, "The Lord of the Rings" , "lotr.jpg", 26.72, "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them
+
+In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell by chance into the hands of the hobbit Bilbo Baggins.
+
+From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings to him, but always he searched for the One Ring that would complete his dominion.
+
+When Bilbo reached his eleventy-first birthday he disappeared, bequeathing to his young cousin Frodo the Ruling Ring and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord, and destroy the Ring by casting it into the Cracks of Doom.
+
+The Lord of the Rings tells of the great quest undertaken by Frodo and the Fellowship of the Ring: Gandalf the Wizard; the hobbits Merry, Pippin, and Sam; Gimli the Dwarf; Legolas the Elf; Boromir of Gondor; and a tall, mysterious stranger called Strider.
+
+This new edition includes the fiftieth-anniversary fully corrected text setting and, for the first time, an extensive new index.", 1);
 
 --
 -- Indeksi zavrženih tabel

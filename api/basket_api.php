@@ -143,12 +143,13 @@ function get_basket_content($conn, $basket)
         for ($i = 0; $i < sizeof($basket); $i++)
         {
             $id = $basket[$i]["id"];
-            $query = "SELECT * FROM article WHERE id='. $id .'";
+            $query = "SELECT * FROM article WHERE id='$id'";
             $res = mysqli_query($conn, $query);
             while ($row = mysqli_fetch_array($res))
             {
                 $row["id"] = $id;
                 $row["quantity"] = $basket[$i]["quantity"];
+                $row["description"] = limit_description_length($row["description"], 100);
                 $articles[] = $row;
             }
         }
@@ -168,4 +169,14 @@ function find_record($id, $array)
     }
 
     return -1;
+}
+
+function limit_description_length($description, $length)
+{
+    if (strlen($description) > $length) {
+        $description = substr($description, 0, $length);
+        $description = $description . "...";
+    }
+
+    return $description;
 }

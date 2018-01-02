@@ -11,19 +11,14 @@ require_once 'dbconn.php';
 
 if (isset($_GET["id"]))
 {
-    $id = mysqli_real_escape_string($conn, $_GET['id']);
-    $query = "SELECT * FROM article WHERE id='. $id .'";
+    $id = (int) mysqli_real_escape_string($conn, $_GET['id']);
+    $query = "SELECT * FROM article WHERE id='$id'";
     $articles = mysqli_query($conn, $query);
 
     echo '<div class="row top-buffer">';
     $i = 0;
     while ($row = mysqli_fetch_array($articles))
     {
-        $i++;
-        if ($i % 4 == 0)
-        {
-            echo '</div><div class="row top-buffer">';
-        }
         echo '<div class="py-5">
                 <div class="container">
                   <div class="row">
