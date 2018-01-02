@@ -12,6 +12,17 @@ include('head.php');
 include_once('../api/logout_api.php');
 ?>
 
+<head>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+    <script src="js/article.js"></script>
+</head>
+
 <html>
     <body>
         <?php include('navbar.php'); ?>

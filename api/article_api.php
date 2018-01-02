@@ -8,12 +8,36 @@
 
 require_once 'dbconn.php';
 
+if (isset($_POST["action"])) {
+    session_start();
+    if ($_POST["action"] == "rate") {
+        $rating = $id = mysqli_real_escape_string($conn, $_POST['rating']);
+        $article_id = $id = mysqli_real_escape_string($conn, $_POST['articleId']);
+        $user_id = $_SESSION["u_id"];
 
-if (isset($_GET["id"]))
+        $query = "SELECT * FROM ratings WHERE article_id=". $article_id ." AND user_id=". $user_id;
+        $result = mysqli_query($conn, $query);
+
+        $rows = array();
+        while($row = mysqli_fetch_array($result))
+        {
+            $rows[] = $row;
+        }
+
+        if (sizeof($rows) == 0) {
+            $query = "INSERT INTO ratings VALUES(NULL, ". $article_id .", ". $user_id .", ". $rating .")";
+        } else {
+            $query = "UPDATE ratings SET rating=". $rating ." WHERE article_id=". $article_id ." AND user_id=". $user_id ;
+        }
+
+        mysqli_query($conn, $query);
+    }
+} elseif (isset($_GET["id"]))
 {
     $id = (int) mysqli_real_escape_string($conn, $_GET['id']);
     $query = "SELECT * FROM article WHERE id='$id'";
     $articles = mysqli_query($conn, $query);
+    $rating = getRating($id, $conn);
 
     echo '<div class="row top-buffer">';
     $i = 0;
@@ -26,8 +50,12 @@ if (isset($_GET["id"]))
                       <img src="images/'. $row["picture"] .'" class="article-img">
                     </div>
                     <div class="col-md-8">
-                      <h1 class="">'. $row["name"] .'</h1>
-                      <p>'. $row["description"] .'</p>
+                      <h1 class="">'. $row["name"] .'</h1>';
+        if (isset($_SESSION['u_id']) && ($_SESSION['u_role'] == "customer" || $_SESSION['u_role'] == "admin" || $_SESSION['u_role'] == "salesman")) {
+            echo          '<div class="rating" id="'. $rating .'" data-article="'. $row["id"] .'">
+                          </div>';
+        }
+        echo          '<p>'. $row["description"] .'</p>
                       <span><b>Cena: '. $row["price"] .'€</b></span>
                       <hr>
                       <button onclick="addToBasketAction('. $row["id"] .')" type="button" class="btn btn-default">Dodaj v košarico</button>
@@ -41,4 +69,20 @@ if (isset($_GET["id"]))
 else
 {
     header("Location: ../client/error404.php");
+}
+
+function getRating($article_id, $conn) {
+    $query = "SELECT rating FROM ratings WHERE article_id=". $article_id;
+    $result = mysqli_query($conn, $query);
+    $sum = 0;
+    $size = 0;
+
+    while($row = mysqli_fetch_array($result))
+    {
+        $sum += $row["rating"];
+        $size++;
+    }
+
+    if ($size == 0) return 0;
+    return round($sum/$size, 2);
 }

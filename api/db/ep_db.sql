@@ -87,6 +87,19 @@ CREATE TABLE `order_article` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabele `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabele `users`
 --
 
@@ -167,6 +180,13 @@ ALTER TABLE `users`
   ADD KEY `id` (`id`);
 
 --
+-- Indeksi tabele `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT zavrženih tabel
 --
 
@@ -180,6 +200,12 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT tabele `orders`
 --
 ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT tabele `orders`
+--
+ALTER TABLE `ratings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
