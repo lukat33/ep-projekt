@@ -8,7 +8,7 @@
 
 require_once 'dbconn.php';
 
-$query = "SELECT * FROM article";
+$query = "SELECT * FROM article WHERE activated=1";
 $articles = mysqli_query($conn, $query);
 
 echo '<div class="row top-buffer">';

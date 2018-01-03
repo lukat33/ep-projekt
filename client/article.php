@@ -5,7 +5,8 @@
  * Date: 30/12/2017
  * Time: 11:14
  */
-$title = 'Domov';
+
+$title = 'Izdelek';
 $currentPage = 'index';
 $page_type = 'public';
 include('head.php');

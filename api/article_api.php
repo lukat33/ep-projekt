@@ -41,30 +41,33 @@ if (isset($_POST["action"])) {
 
     echo '<div class="row top-buffer">';
     $i = 0;
-    while ($row = mysqli_fetch_array($articles))
-    {
-        echo '<div class="py-5">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <img src="images/'. $row["picture"] .'" class="article-img">
+    while ($row = mysqli_fetch_array($articles)) {
+        if ((int)$row["activated"] == 1) {
+            echo '<div class="py-5">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img src="images/' . $row["picture"] . '" class="article-img">
+                        </div>
+                        <div class="col-md-8">
+                          <h1 class="">' . $row["name"] . '</h1>';
+            if (isset($_SESSION['u_id']) && ($_SESSION['u_role'] == "customer" || $_SESSION['u_role'] == "admin" || $_SESSION['u_role'] == "salesman")) {
+                echo '<div class="rating" id="' . $rating . '" data-article="' . $row["id"] . '">
+                              </div>';
+            }
+            echo '<p>' . $row["description"] . '</p>
+                          <span><b>Cena: ' . $row["price"] . '€</b></span>
+                          <hr>
+                          <button onclick="addToBasketAction(' . $row["id"] . ')" type="button" class="btn btn-default">Dodaj v košarico</button>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-8">
-                      <h1 class="">'. $row["name"] .'</h1>';
-        if (isset($_SESSION['u_id']) && ($_SESSION['u_role'] == "customer" || $_SESSION['u_role'] == "admin" || $_SESSION['u_role'] == "salesman")) {
-            echo          '<div class="rating" id="'. $rating .'" data-article="'. $row["id"] .'">
-                          </div>';
+                  </div>';
+        echo "</div>";
+        } else {
+            header("Location: ../client/error404.php");
         }
-        echo          '<p>'. $row["description"] .'</p>
-                      <span><b>Cena: '. $row["price"] .'€</b></span>
-                      <hr>
-                      <button onclick="addToBasketAction('. $row["id"] .')" type="button" class="btn btn-default">Dodaj v košarico</button>
-                    </div>
-                  </div>
-                </div>
-              </div>';
     }
-    echo "</div>";
 }
 else
 {

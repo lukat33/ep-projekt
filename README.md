@@ -3,8 +3,6 @@
 **TO DO:**
 - poskrbi za XSS
 - napiši funkcije za vnos elementov v bazo
-- ne prikaži izdelkov, ki so deaktivirani
-- košarica ne dela kot bi mogla, zgleda da loči artikle glede na pravi ID ampak ne posodobi pravih vrednosti
 
 
 **TO DO OSNOVNO:**

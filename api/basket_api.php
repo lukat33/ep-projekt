@@ -111,7 +111,7 @@ function render($conn)
                             <td><a href="index.php" class="btn tfn-warning"><i class="fa fa-angle-left"></i> Nadaljujte z nakupovanjem</a></td>
                             <td colspan="2" class="hidden-xs"></td>
                             <td class="hidden-xs text-center total"><strong>Skupaj '. $total .'€</strong></td>
-                            <td><a href="#" class="btn btn-success btn-block">Naprej <i class="fa fa-angle-right"></i></a></td>
+                            <td><a href="order_preview.php" class="btn btn-success btn-block">Pregled naročila <i class="fa fa-angle-right"></i></a></td>
                         </tr>
                     </tfoot>';
 }
