@@ -14,9 +14,6 @@ Prodajalec:
 - Dostop je dovoljen le odjemalcem, ki se overijo s pomočjo certifikatov X.509;
 - Pregled in obdelava naročil
 
-Stranka:
-- Zaključek nakupa, prikazan predračun
-- Dostop do zgodovine nakupov
 
 Android aplikacija
 

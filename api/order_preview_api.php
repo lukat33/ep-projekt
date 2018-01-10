@@ -14,7 +14,7 @@ if (isset($_POST["action"])) {
     if ($_POST["action"] == "send-order") {
         session_start();
         // Create order
-        $query = "INSERT INTO orders VALUES(NULL, ". $_SESSION["u_id"] .", 0, 'unprocessed')";
+        $query = "INSERT INTO orders VALUES(NULL, ". $_SESSION["u_id"] .", 'oddano', now())";
         $result = mysqli_query($conn, $query);
 
         $order_id = mysqli_insert_id($conn);

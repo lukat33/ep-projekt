@@ -37,6 +37,13 @@
                             <a class="nav-link" href="adminpanel.php">Admin</a>
                          </li>';
                     }
+                    if ($_SESSION['u_role'] == "customer") {
+                        if ($currentPage == "purchase_history") $active = "active"; else $active = "";
+                        echo
+                            '<li class="nav-item '.$active.'">
+                            <a class="nav-link" href="purchase_history.php">Moja naročila</a>
+                         </li>';
+                    }
                 }
             ?>
         </ul>

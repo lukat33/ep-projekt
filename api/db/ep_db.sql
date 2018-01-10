@@ -68,8 +68,8 @@ INSERT INTO `contact_data` (`user_id`, `street`, `street_number`, `city`, `posta
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `total` int(11) NOT NULL,
-  `status` varchar(50) COLLATE utf8_slovenian_ci NOT NULL
+  `status` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
+  `date` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 -- --------------------------------------------------------
