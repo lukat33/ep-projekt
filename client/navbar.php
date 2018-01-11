@@ -27,7 +27,12 @@
                         if ($currentPage == "salesman_panel") $active = "active"; else $active = "";
                         echo
                             '<li class="nav-item '.$active.'">
-                            <a class="nav-link" href="salesman_panel.php">Prodajalec</a>
+                            <a class="nav-link" href="salesman_panel.php">Artikli</a>
+                         </li>';
+                        if ($currentPage == "customers") $active = "active"; else $active = "";
+                        echo
+                            '<li class="nav-item '.$active.'">
+                            <a class="nav-link" href="customers.php">Stranke</a>
                          </li>';
                     }
                     if ($_SESSION['u_role'] == "admin") {
@@ -52,7 +57,7 @@
             if (isset($_SESSION['u_id'])) {
                 if ($_SESSION['u_role'] == "customer")
                     echo '<a href="basket.php" class="btn btn-login btn-primary" role="button">Košarica</a>';
-                echo '<a href="index.php?logout" class="btn btn-login btn-warning" role="button">Odjava</a>';
+                echo '<a href="index.php?logout" class="btn btn-login btn-danger" role="button">Odjava</a>';
             } else {
                 // No user is logged in
                 echo
