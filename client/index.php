@@ -5,21 +5,21 @@
     $page_type = 'public';
     include('head.php');
     include_once('../api/logout_api.php');
+
+    if (!isset($_GET["view"])) {
+        header('Location: '. "index.php?view=received");
+    }
 ?>
 
 <head>
     <script type="text/javascript" src="js/basket.js" ></script>
+    <script type="text/javascript" src="js/index.js" ></script>
 </head>
-
-
-<body>
-
-    <?php include('navbar.php'); ?>
-
-    <div class="container">
-        <div class="h2" style="text-align: center">Izdelki na voljo v trgovini</div>
-        <hr>
-        <?php include('../api/index_api.php'); ?>
-    </div><!-- /.container -->
-</body>
+    <?php
+        if ($_SESSION['u_role'] == "salesman"){
+            include("salesman_index.php");
+        } else {
+            include("client_index.php");
+        }
+    ?>
 </html>
