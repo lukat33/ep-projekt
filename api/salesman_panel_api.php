@@ -18,12 +18,16 @@ while($row = mysqli_fetch_array($result)) {
     $status = "Deaktiviran";
     if ($row['activated'] == 1) $status = "Aktiviran";
 
+    $description = $row['description'];
+    if (strlen($description) > 175) {
+        $description = substr($row['description'], 0, 175) . " ...";
+    }
     echo '<tr id="' . $count . '">
         <th scope="row"> ' . $count . ' </th>
         <td> ' . $row['name'] . ' </td>
         <td> <img src="../client/images/' . $row["picture"] . '" class="img-responsive img-thumb"/></div> </td>
         <td> ' . $row['price'] . '€</td>
-        <td> ' . $row['description'] . ' </td>
+        <td> ' . $description . ' </td>
         <td> ' . $status . ' </td>
         <td><a href="../client/article_edit.php?id=' . $row['id'] . '" class="btn btn-info btn-sm" role="button">Uredi</a></td>
     </tr>';

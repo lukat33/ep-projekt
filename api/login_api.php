@@ -48,6 +48,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['u_lastname'] = $row['lastname'];
                     $_SESSION['u_email'] = $row['email'];
                     $_SESSION['u_role'] = $row['role'];
+
                     if ($row['role'] == "customer") {
                         $id = $row['id'];
                         $query = "SELECT * FROM contact_data WHERE user_id='$id'";
@@ -58,6 +59,10 @@ if (isset($_POST['login'])) {
                         $_SESSION['u_city'] = $row['city'];
                         $_SESSION['u_postal_code'] = $row['postal_code'];
                         $_SESSION['u_phone'] = $row['phone'];
+                    } else {
+                        // Save login data to logs.txt
+                        $txt = $row['firstname'] . ";" . $row['lastname'] . ";" . $row['email'] . ";" . $row['role'] . ";" . date("d-m-Y h:i:sa");
+                        $myfile = file_put_contents('../api/logs/login_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
                     }
                     header("Location: ../client/index.php");
                     exit();
