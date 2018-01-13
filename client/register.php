@@ -9,6 +9,7 @@
 ?>
 
 <body>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <?php include('navbar.php'); ?>
     <div class="container">
         <div class="row">
@@ -88,12 +89,26 @@
                     <div class="form-group">
                         <input type="tel" name="phone" id="phone" class="form-control" placeholder="Telefonska številka" value="<?php echo $phone; ?>">
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3">
+                    <div class="g-recaptcha" style="margin-left: 2rem" data-sitekey="6Le9kEAUAAAAAEomfPeoXQFt9rkl18wR9FvLjLqt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-5">
                     <button type="submit" name="register" class="btn btn-default" id="register-btn">Registracija</button>
                     <!-- Validation errors -->
-                    <?php
+                    <div style="margin-left: 6rem">
+                        <?php
                         include('errors.php');
                         echo $registerSuccess;
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
         </form>

@@ -24,7 +24,8 @@ if (isset($_POST['register'])) {
     // Ensure that form fields are filled properply
 
     if (empty($firstname) || empty($lastname) || empty($email) || empty($street) || empty($city)
-        || empty($postal_code) || empty($phone) || empty($street_number) || empty($password_1) || empty($password_2)) {
+        || empty($postal_code) || empty($phone) || empty($street_number) || empty($password_1)
+        || empty($password_2) || !isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
         // Check empty fields
         array_push($errors, "Izpolni vsa vnosna polja");
     }
@@ -56,6 +57,15 @@ if (isset($_POST['register'])) {
             // Passwords do not match
             $password_1 = $password_2 = "";
             array_push($errors, "Gesli se ne ujemata");
+        }
+        //your site secret key
+        $secret = '6Le9kEAUAAAAAKfq_l_wPuja8SfpJFvQuzSIT2My';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+        $responseData = json_decode($verifyResponse);
+
+        if (!$responseData->success) {
+            array_push($errors, "Robotoska verifikacija ni bila uspešna");
         }
     }
     // No errors
