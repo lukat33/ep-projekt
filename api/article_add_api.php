@@ -15,9 +15,9 @@ $imageName = "none.png";
 $article_add_succes = "";
 
 if (isset($_POST['article_add'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $price = mysqli_real_escape_string($conn, $_POST['price']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $name = cleanData(mysqli_real_escape_string($conn, $_POST['name']));
+    $price = cleanData(mysqli_real_escape_string($conn, $_POST['price']));
+    $description = cleanData(mysqli_real_escape_string($conn, $_POST['description']));
     if (!empty(basename($_FILES["fileToUpload"]["name"]))) {
         $imageName = basename($_FILES["fileToUpload"]["name"]);
     }

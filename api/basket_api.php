@@ -13,7 +13,7 @@ if (isset($_POST["action"])) {
     session_start();
     if ($_POST["action"] == "remove")
     {
-        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $id = cleanData(mysqli_real_escape_string($conn, $_POST['id']));
         $record_id = find_record($id, $_SESSION["basket_articles"]);
 
 
@@ -28,7 +28,7 @@ if (isset($_POST["action"])) {
             $_SESSION["basket_articles"] = array();
         }
 
-        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $id = cleanData(mysqli_real_escape_string($conn, $_POST['id']));
         $record_id = find_record($id, $_SESSION["basket_articles"]);
 
         if ($record_id != -1)
@@ -45,8 +45,8 @@ if (isset($_POST["action"])) {
     }
     elseif ($_POST["action"] == "quantity")
     {
-        $id = mysqli_real_escape_string($conn, $_POST['id']);
-        $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
+        $id = cleanData(mysqli_real_escape_string($conn, $_POST['id']));
+        $quantity = cleanData(mysqli_real_escape_string($conn, $_POST['quantity']));
         $record_id = find_record($id, $_SESSION["basket_articles"]);
         $_SESSION["basket_articles"][$record_id]["quantity"] = $quantity;
     }

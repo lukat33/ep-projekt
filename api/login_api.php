@@ -6,8 +6,8 @@ $password = "";
 $errors = array();
 
 if (isset($_POST['login'])) {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $email = cleanData(mysqli_real_escape_string($conn, $_POST['email']));
+    $password = cleanData(mysqli_real_escape_string($conn, $_POST['password']));
 
     // Ensure that form fields are filled properply
     if (empty($email) || empty($password)) {
@@ -74,5 +74,4 @@ if (isset($_POST['login'])) {
         }
     }
 }
-
 ?>

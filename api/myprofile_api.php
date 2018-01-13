@@ -12,17 +12,17 @@ $pwdChange = 0;
 $role = $_SESSION['u_role'];
 
 if (isset($_POST['update'])) {
-    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
-    $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
+    $firstname = cleanData(mysqli_real_escape_string($conn, $_POST['firstname']));
+    $lastname = cleanData(mysqli_real_escape_string($conn, $_POST['lastname']));
+    $email = cleanData(mysqli_real_escape_string($conn, $_POST['email']));
+    $password_1 = cleanData(mysqli_real_escape_string($conn, $_POST['password_1']));
+    $password_2 = cleanData(mysqli_real_escape_string($conn, $_POST['password_2']));
     if ($role == "customer") {
-        $street = mysqli_real_escape_string($conn, $_POST['street']);
-        $street_number = mysqli_real_escape_string($conn, $_POST['street_number']);
-        $city = mysqli_real_escape_string($conn, $_POST['city']);
-        $postal_code = mysqli_real_escape_string($conn, $_POST['postal_code']);
-        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $street = cleanData(mysqli_real_escape_string($conn, $_POST['street']));
+        $street_number = cleanData(mysqli_real_escape_string($conn, $_POST['street_number']));
+        $city = cleanData(mysqli_real_escape_string($conn, $_POST['city']));
+        $postal_code = cleanData(mysqli_real_escape_string($conn, $_POST['postal_code']));
+        $phone = cleanData(mysqli_real_escape_string($conn, $_POST['phone']));
     }
 
     // Ensure that form fields are filled properply

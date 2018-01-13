@@ -21,3 +21,10 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     exit();
 }
+function cleanData($data){
+    $data=trim($data);
+    $data=stripcslashes($data);
+    $data=htmlspecialchars($data);
+    $data=strip_tags($data);
+    return $data;
+}

@@ -10,16 +10,16 @@ $password_1 = $password_2 = "";
 $errors = array();
 
 if (isset($_POST['register'])) {
-    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $street = mysqli_real_escape_string($conn, $_POST['street']);
-    $street_number = mysqli_real_escape_string($conn, $_POST['street_number']);
-    $city = mysqli_real_escape_string($conn, $_POST['city']);
-    $postal_code = mysqli_real_escape_string($conn, $_POST['postal_code']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
-    $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
+    $firstname = cleanData(mysqli_real_escape_string($conn, $_POST['firstname']));
+    $lastname = cleanData(mysqli_real_escape_string($conn, $_POST['lastname']));
+    $email = cleanData(mysqli_real_escape_string($conn, $_POST['email']));
+    $street = cleanData(mysqli_real_escape_string($conn, $_POST['street']));
+    $street_number = cleanData(mysqli_real_escape_string($conn, $_POST['street_number']));
+    $city = cleanData(mysqli_real_escape_string($conn, $_POST['city']));
+    $postal_code = cleanData(mysqli_real_escape_string($conn, $_POST['postal_code']));
+    $phone = cleanData(ysqli_real_escape_string($conn, $_POST['phone']));
+    $password_1 = cleanData(mysqli_real_escape_string($conn, $_POST['password_1']));
+    $password_2 = cleanData(mysqli_real_escape_string($conn, $_POST['password_2']));
 
     // Ensure that form fields are filled properply
 

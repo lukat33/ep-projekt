@@ -28,12 +28,12 @@ if (isset($_GET['id'])) {
         $status = "checked";
 
 } elseif(isset($_POST['article_save'])) {
-    $id = mysqli_real_escape_string($conn, $_POST['id']);
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $price = mysqli_real_escape_string($conn, $_POST['price']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $id = cleanData(mysqli_real_escape_string($conn, $_POST['id']));
+    $name = cleanData(mysqli_real_escape_string($conn, $_POST['name']));
+    $price = cleanData(mysqli_real_escape_string($conn, $_POST['price']));
+    $description = cleanData(mysqli_real_escape_string($conn, $_POST['description']));
     if (!empty($_POST['togglebtn'])) {
-        $status = mysqli_real_escape_string($conn, $_POST['togglebtn']);
+        $status = cleanData(mysqli_real_escape_string($conn, $_POST['togglebtn']));
     }
 
     if (!empty(basename($_FILES["fileToUpload"]["name"]))) {

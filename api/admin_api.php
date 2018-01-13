@@ -12,11 +12,11 @@ $query = "SELECT * FROM users WHERE role='salesman'";
 $result = mysqli_query($conn, $query);
 $count = 1;
 if (isset($_POST['modal_add_form'])) {
-    $firstname = mysqli_real_escape_string($conn, $_POST['modal_add_firstname']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['modal_add_lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['modal_add_email']);
-    $password = mysqli_real_escape_string($conn, $_POST['modal_add_password_1']);
-    $status = mysqli_real_escape_string($conn, $_POST['modal_add_status']);
+    $firstname = cleanData(mysqli_real_escape_string($conn, $_POST['modal_add_firstname']));
+    $lastname = cleanData(mysqli_real_escape_string($conn, $_POST['modal_add_lastname']));
+    $email = cleanData(mysqli_real_escape_string($conn, $_POST['modal_add_email']));
+    $password = cleanData(mysqli_real_escape_string($conn, $_POST['modal_add_password_1']));
+    $status = cleanData(mysqli_real_escape_string($conn, $_POST['modal_add_status']));
 
     $query = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $query);
@@ -28,11 +28,11 @@ if (isset($_POST['modal_add_form'])) {
                       VALUES ('$firstname', '$lastname', '$email', '$hashedPassword', 'salesman', $status)";
     mysqli_query($conn, $query);
 } else if (isset($_POST['modal_form'])) {
-    $firstname = mysqli_real_escape_string($conn, $_POST['modal_firstname']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['modal_lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['modal_email']);
-    $password = mysqli_real_escape_string($conn, $_POST['modal_password_1']);
-    $status = mysqli_real_escape_string($conn, $_POST['modal_status']);
+    $firstname = cleanData(mysqli_real_escape_string($conn, $_POST['modal_firstname']));
+    $lastname = cleanData(mysqli_real_escape_string($conn, $_POST['modal_lastname']));
+    $email = cleanData(mysqli_real_escape_string($conn, $_POST['modal_email']));
+    $password = cleanData(mysqli_real_escape_string($conn, $_POST['modal_password_1']));
+    $status = cleanData(mysqli_real_escape_string($conn, $_POST['modal_status']));
 
     $query = "SELECT * FROM users WHERE email='$email'";
     $result = mysqli_query($conn, $query);

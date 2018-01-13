@@ -10,8 +10,8 @@
 include_once 'dbconn.php';
 
 if (isset($_POST["activated"]) && isset($_POST["id"])) {
-    $id =  mysqli_real_escape_string($conn, $_POST['id']);
-    $activated =  mysqli_real_escape_string($conn, $_POST['activated']);
+    $id =  cleanData(mysqli_real_escape_string($conn, $_POST['id']));
+    $activated =  cleanData(mysqli_real_escape_string($conn, $_POST['activated']));
     $query = "UPDATE users SET activated=". $activated ." WHERE id=". $id;
     $result = mysqli_query($conn, $query);
 } else {

@@ -11,8 +11,8 @@ require_once 'dbconn.php';
 if (isset($_POST["action"])) {
     session_start();
     if ($_POST["action"] == "rate") {
-        $rating = $id = mysqli_real_escape_string($conn, $_POST['rating']);
-        $article_id = $id = mysqli_real_escape_string($conn, $_POST['articleId']);
+        $rating = $id = cleanData(mysqli_real_escape_string($conn, $_POST['rating']));
+        $article_id = $id = cleanData(mysqli_real_escape_string($conn, $_POST['articleId']));
         $user_id = $_SESSION["u_id"];
 
         $query = "SELECT * FROM ratings WHERE article_id=". $article_id ." AND user_id=". $user_id;
@@ -34,7 +34,7 @@ if (isset($_POST["action"])) {
     }
 } elseif (isset($_GET["id"]))
 {
-    $id = (int) mysqli_real_escape_string($conn, $_GET['id']);
+    $id = (int) cleanData(mysqli_real_escape_string($conn, $_GET['id']));
     $query = "SELECT * FROM article WHERE id='$id'";
     $articles = mysqli_query($conn, $query);
     $rating = getRating($id, $conn);
