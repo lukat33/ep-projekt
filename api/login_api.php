@@ -10,9 +10,9 @@ if (isset($_POST['login'])) {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     // Ensure that form fields are filled properply
-    if (empty($email) || empty($password)) {
+    if (empty($email) || empty($password) || !isset($_POST['g-recaptcha-response']) || empty($_POST['g-recaptcha-response'])) {
         // Check empty fields
-        array_push($errors, "Manjkajoče uporabniško ime ali geslo");
+        array_push($errors, "Izpolni vsa vnosna polja.");
     }
     else {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -24,6 +24,15 @@ if (isset($_POST['login'])) {
             // Password must be at least 6 chars long
             $password = "";
             array_push($errors, "Geslo mora vsebovati vsaj 6 znakov");
+        }
+        //your site secret key
+        $secret = '6Le9kEAUAAAAAKfq_l_wPuja8SfpJFvQuzSIT2My';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+        $responseData = json_decode($verifyResponse);
+
+        if (!$responseData->success) {
+            array_push($errors, "Robotoska verifikacija ni bila uspešna");
         }
     }
 
@@ -69,4 +78,5 @@ if (isset($_POST['login'])) {
         }
     }
 }
+
 ?>

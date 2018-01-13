@@ -7,6 +7,7 @@
     include('../api/login_api.php');
 ?>
 <body>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <?php include('navbar.php'); ?>
     <div class="container">
         <div class="row">
@@ -15,23 +16,34 @@
                 <h2>Prijava</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-3 login-form">
-                <form class="" action="login.php" method="POST">
+        <form class="" action="login.php" method="POST">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3 login-form">
                     <div class="form-group mar-top-2rem">
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>">
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" id="password" class="form-control" placeholder="Geslo" value="<?php echo $password; ?>" >
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3">
+                    <div class="g-recaptcha" data-sitekey="6Le9kEAUAAAAAEomfPeoXQFt9rkl18wR9FvLjLqt"></div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3 login-form">
                     <button type="submit" name="login" class="btn btn-default" id="login-btn">Prijava</button>
                     <!-- Validation errors -->
                     <?php include('errors.php'); ?>
-                </form>
+                </div>
             </div>
-            </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>
