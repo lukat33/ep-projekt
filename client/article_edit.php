@@ -79,6 +79,19 @@
                 <button type="submit" name="article_save" class="btn btn-default" style="float: right;" >Shrani artikel</button>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-4">
+                <?php for ($i = 0; $i < sizeof($images); $i++) {
+                    echo '<div class="col-md-1">
+                        <img src="images/' . $images[$i]["picture"] . '" class="article-img thumb" id='. $i .'>
+                        </div>';
+                    }
+                ?>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-md-6">

@@ -18,8 +18,20 @@ if (isset($_POST['article_add'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
-    if (!empty(basename($_FILES["fileToUpload"]["name"]))) {
-        $imageName = basename($_FILES["fileToUpload"]["name"]);
+//    if (!empty(basename($_FILES["fileToUpload"]["name"]))) {
+//        $imageName = basename($_FILES["fileToUpload"]["name"]);
+//    }
+//    var_dump($_FILES['fileToUpload']);
+    $myFile = $_FILES['fileToUpload'];
+
+    $fileCount = count($myFile["name"]);
+    echo "File count: " . $fileCount . " : ";
+    if(count($_FILES['fileToUpload']['name']) > 0){
+        echo count($_FILES['fileToUpload']['name']) . " ";
+        for($i=0; $i<count($_FILES['fileToUpload']['name']); $i++) {
+            //Get the temp file path
+            echo $_FILES['fileToUpload']['name'][$i];
+        }
     }
 
     // Ensure that form fields are filled properply

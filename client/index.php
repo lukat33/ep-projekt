@@ -16,7 +16,7 @@
     <script type="text/javascript" src="js/index.js" ></script>
 </head>
     <?php
-        if ($_SESSION['u_role'] == "salesman"){
+        if (isset($_SESSION['u_id']) && $_SESSION['u_role'] == "salesman"){
             include("salesman_index.php");
         } else {
             include("client_index.php");

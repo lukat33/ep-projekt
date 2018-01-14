@@ -123,10 +123,12 @@ CREATE TABLE article_pictures
 (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   article_id INT NOT NULL,
-  picture VARCHAR(100) NOT NULL,
-  CONSTRAINT article_id FOREIGN KEY (article_id) REFERENCES article (id)
+  picture VARCHAR(130) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
+
+INSERT INTO article_pictures VALUES(1, 1, "as-i-descended2.jpg");
+INSERT INTO article_pictures VALUES(2, 1, "as-i-descended3.jpg");
 
 --
 -- Odloži podatke za tabelo `users`
@@ -238,6 +240,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `contact_data`
   ADD CONSTRAINT `contact_data_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Omejitve za tabelo `article_pictures`
+--
+ALTER TABLE `article_pictures`
+ ADD CONSTRAINT article_id FOREIGN KEY (article_id) REFERENCES article (id);
 
 --
 -- Omejitve za tabelo `orders`
