@@ -54,12 +54,12 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-md-4">
-                    <label>Dodaj sliko</label>
+                    <label>Dodaj slike</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload[]" id="imgInp" multiple></span>
                         </span>
-                        <input type="text" name="tmp_name" class="form-control" readonly>
+                        <input type="text" name="tmp_name" id="labe" class="form-control" readonly>
                     </div>
                 </div>
 
