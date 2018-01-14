@@ -113,6 +113,21 @@ CREATE TABLE `users` (
   `activated` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `article_images`
+--
+
+CREATE TABLE article_pictures
+(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  article_id INT NOT NULL,
+  picture VARCHAR(100) NOT NULL,
+  CONSTRAINT article_id FOREIGN KEY (article_id) REFERENCES article (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+
 --
 -- Odloži podatke za tabelo `users`
 --
