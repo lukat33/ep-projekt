@@ -83,12 +83,12 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-4">
-                <?php for ($i = 0; $i < sizeof($images); $i++) {
-                    echo '<div class="col-md-1">
-                        <img src="images/' . $images[$i]["picture"] . '" class="article-img thumb" id='. $i .'>
-                        </div>';
-                    }
-                ?>
+<!--                --><?php //for ($i = 0; $i < sizeof($images); $i++) {
+//                    echo '<div class="col-md-1">
+//                        <img src="images/' . $images[$i]["picture"] . '" class="article-img thumb" id='. $i .'>
+//                        </div>';
+//                    }
+//                ?>
             </div>
         </div>
 

@@ -28,13 +28,6 @@ if (isset($_POST['article_add'])) {
         }
     }
 
-    if (count($_FILES['fileToUpload']['name']) > 0){
-        for($i=0; $i<count($_FILES['fileToUpload']['name']); $i++) {
-            //Get the temp file path
-            echo basename($_FILES['fileToUpload']['name'][$i]) . "   ";
-        }
-    }
-
     // Ensure that form fields are filled properply
     if (empty($name) || empty($price) || empty($description )) {
         array_push($errors, "Izpolni vsa vnosna polja");
@@ -42,7 +35,7 @@ if (isset($_POST['article_add'])) {
         $price =  floatval($price);
 
         if ($imageName != "none.png") {
-            for ($i=0; i<$fileCount; $i++) {
+            for ($i=0; $i<$fileCount; $i++) {
                 $target_file = "../client/images/" . basename($_FILES["fileToUpload"]["name"][$i]);
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -68,6 +61,7 @@ if (isset($_POST['article_add'])) {
 
                 if ($uploadOk == 1) {
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
+                        usleep(500000);
 
                     } else {
                         array_push($errors, "Prišlo je do napake, poskusi ponovno kasneje");
@@ -82,10 +76,16 @@ if (isset($_POST['article_add'])) {
         $query = "INSERT INTO article (name, picture, price, description, activated)
                       VALUES ('$name', '$imageName', '$price', '$description', '1')";
         mysqli_query($conn, $query);
+        $id = mysqli_insert_id($conn);
 
-//        if ($fileCount > 1) {
-//
-//        }
+        if ($fileCount > 1) {
+            for ($i=1; $i<$fileCount; $i++) {
+                $name = $_FILES["fileToUpload"]["name"][$i];
+                $query = "INSERT INTO article_pictures (article_id, picture)
+                      VALUES ('$id', '$name')";
+                mysqli_query($conn, $query);
+            }
+        }
         $article_add_succes =
             '<div class="alert alert-success mar-top-2rem" style="text-align: center">
                 Artikel je bil dodan!
