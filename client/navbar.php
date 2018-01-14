@@ -61,7 +61,8 @@
             } else {
                 // No user is logged in
                 echo
-                    '<a href="login.php" class="btn btn-login btn-primary" role="button">Prijava</a>
+                    '<a href="login.php" class="btn btn-login btn-primary" role="button">Prijava 1</a>
+                    <a href="login.php?e=1" class="btn btn-login btn-primary" role="button">Prijava 2</a>
                      <a href="register.php" class="btn btn-login btn-info" role="button">Registracija</a>';
             }
         ?>
