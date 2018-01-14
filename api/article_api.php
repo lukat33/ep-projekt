@@ -42,12 +42,14 @@ if (isset($_POST["action"])) {
     echo '<div class="row top-buffer">';
     $i = 0;
     while ($row = mysqli_fetch_array($articles)) {
+        $images = get_images($conn, $row["id"]);
+
         if ((int)$row["activated"] == 1) {
             echo '<div class="py-5">
                     <div class="container">
                       <div class="row">
                         <div class="col-md-4">
-                          <img src="images/' . $row["picture"] . '" class="article-img">
+                          <img src="images/' . $row["picture"] . '" class="article-img primary">
                         </div>
                         <div class="col-md-8">
                           <h1 class="">' . $row["name"] . '</h1>';
@@ -61,9 +63,19 @@ if (isset($_POST["action"])) {
                           <button onclick="addToBasketAction(' . $row["id"] . ')" type="button" class="btn btn-default">Dodaj v košarico</button>
                         </div>
                       </div>
+                      <div class="row">
+                      <div class="col-md-1">
+                        <img src="images/' . $row["picture"] . '" class="article-img thumb" id=-1>
+                      </div>';
+            for ($i = 0; $i < sizeof($images); $i++) {
+                echo        '<div class="col-md-1">
+                          <img src="images/' . $images[$i]["picture"] . '" class="article-img thumb" id='. $i .'>
+                        </div>';
+            }
+            echo      "</div>
                     </div>
-                  </div>';
-        echo "</div>";
+                  </div>
+                </div>";
         } else {
             header("Location: ../client/error404.php");
         }
@@ -72,6 +84,18 @@ if (isset($_POST["action"])) {
 else
 {
     header("Location: ../client/error404.php");
+}
+
+function get_images($conn, $article_id) {
+    $query = "SELECT picture FROM article_pictures WHERE article_id=". $article_id;
+    $result = mysqli_query($conn, $query);
+    $images = [];
+
+    while ($image = mysqli_fetch_array($result)) {
+        $images[] = $image;
+    }
+
+    return $images;
 }
 
 function getRating($article_id, $conn) {
