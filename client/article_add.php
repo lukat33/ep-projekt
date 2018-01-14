@@ -21,7 +21,7 @@
             <div class="col-sm-3" id="register-title"><h2>Dodaj artikel</h2></div>
         </div>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="row mar-top-2rem">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-4">
@@ -54,18 +54,25 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-md-4">
-                    <label>Dodaj sliko</label>
+                    <label>Dodaj slike</label>
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload" id="imgInp"></span>
+                            <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload[]" id="imgInp" multiple></span>
                         </span>
-                        <input type="text" name="tmp_name" class="form-control" readonly>
+                        <input type="text" name="tmp_name" id="labe" class="form-control" readonly>
                     </div>
-                    <img id='img-upload'/>
                 </div>
+
                 <div class="col-sm-2 mar-top-2rem">
                     <button type="submit" name="article_add" class="btn btn-default" style="float: right;" >Dodaj artikel</button>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                    <div class="col-sm-1"> <img class="img-up" id='img-upload1'/> </div>
+                    <div class="col-sm-1"> <img class="img-up" id='img-upload2'/> </div>
+                    <div class="col-sm-1"> <img class="img-up" id='img-upload3'/> </div>
+                    <div class="col-sm-1"> <img class="img-up" id='img-upload4'/> </div>
             </div>
             <div class="row">
                 <div class="col-sm-3"></div>

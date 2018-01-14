@@ -57,6 +57,11 @@ $( document ).ready( function () {
 
     $(".num").off()
 
+    $(".thumb").mouseover( function () {
+       var source = $( this ).attr("src");
+        $(".primary").attr("src", source);
+        console.log(source)
+    });
 });
 
 function addRating() {
