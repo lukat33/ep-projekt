@@ -30,6 +30,11 @@
                     <?php include('errors.php'); ?>
                 </form>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-4" style="margin-top:2rem">
+                <a style="text-align: center;" href="login_employee.php">Prijava za osebje ></a>
             </div>
         </div>
     </div>
