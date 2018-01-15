@@ -5,6 +5,7 @@ $email = "";
 $password = "";
 $errors = array();
 
+
 if (isset($_POST['login'])) {
     $email = cleanData(mysqli_real_escape_string($conn, $_POST['email']));
     $password = cleanData(mysqli_real_escape_string($conn, $_POST['password']));
@@ -27,6 +28,11 @@ if (isset($_POST['login'])) {
         }
     }
 
+    // Check if certificate email is the same as account email
+    if ($_SERVER["SSL_CLIENT_S_DN_Email"] != $email) {
+        array_push($errors, "Napaka certifikata");
+    }
+
     // No errors
     if (count($errors) == 0) {
         // Check if user already exists in database
@@ -36,37 +42,42 @@ if (isset($_POST['login'])) {
 
         if ($rows > 0) {
             if ($row = mysqli_fetch_assoc($result)) {
-                // De-hash password
-                $role = ($row['role'] == "admin" or $row['role'] == "salesman");
-                $hashedPwdCheck = password_verify($password, $row['password']);
+                // Check user role
+                if ($row['role'] == "salesman" or $row['role'] == "admin") {
 
-                if ($hashedPwdCheck == false or !$role) {
-                    array_push($errors, "Email/geslo je nepravilno ali ne obstaja");
-                } elseif ($hashedPwdCheck == true) {
-                    // Successful login, user found in database
-                    $_SESSION['u_id'] = $row['id'];
-                    $_SESSION['u_firstname'] = $row['firstname'];
-                    $_SESSION['u_lastname'] = $row['lastname'];
-                    $_SESSION['u_email'] = $row['email'];
-                    $_SESSION['u_role'] = $row['role'];
+                    // De-hash password
+                    $hashedPwdCheck = password_verify($password, $row['password']);
 
-                    if ($row['role'] == "customer") {
-                        $id = $row['id'];
-                        $query = "SELECT * FROM contact_data WHERE user_id='$id'";
-                        $result = mysqli_query($conn, $query);
-                        $row = mysqli_fetch_assoc($result);
-                        $_SESSION['u_street'] = $row['street'];
-                        $_SESSION['u_street_number'] = $row['street_number'];
-                        $_SESSION['u_city'] = $row['city'];
-                        $_SESSION['u_postal_code'] = $row['postal_code'];
-                        $_SESSION['u_phone'] = $row['phone'];
-                    } else {
-                        // Save login data to logs.txt
-                        $txt = $row['firstname'] . ";" . $row['lastname'] . ";" . $row['email'] . ";" . $row['role'] . ";" . date("d-m-Y h:i:sa");
-                        $myfile = file_put_contents('../api/logs/login_logs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+                    if ($hashedPwdCheck == false) {
+                        array_push($errors, "Email/geslo je nepravilno ali ne obstaja");
+                    } elseif ($hashedPwdCheck == true) {
+                        // Successful login, user found in database
+                        $_SESSION['u_id'] = $row['id'];
+                        $_SESSION['u_firstname'] = $row['firstname'];
+                        $_SESSION['u_lastname'] = $row['lastname'];
+                        $_SESSION['u_email'] = $row['email'];
+                        $_SESSION['u_role'] = $row['role'];
+
+                        if ($row['role'] == "customer") {
+                            $id = $row['id'];
+                            $query = "SELECT * FROM contact_data WHERE user_id='$id'";
+                            $result = mysqli_query($conn, $query);
+                            $row = mysqli_fetch_assoc($result);
+                            $_SESSION['u_street'] = $row['street'];
+                            $_SESSION['u_street_number'] = $row['street_number'];
+                            $_SESSION['u_city'] = $row['city'];
+                            $_SESSION['u_postal_code'] = $row['postal_code'];
+                            $_SESSION['u_phone'] = $row['phone'];
+                        } else {
+                            // Save login data to logs.txt
+                            $txt = $row['firstname'] . ";" . $row['lastname'] . ";" . $row['email'] . ";" . $row['role'] . ";" . date("d-m-Y h:i:sa");
+                            $myfile = file_put_contents('../api/logs/login_logs.txt', $txt . PHP_EOL, FILE_APPEND | LOCK_EX);
+                        }
+                        header("Location: ../client/index.php");
+                        exit();
                     }
-                    header("Location: ../client/index.php");
-                    exit();
+                } else {
+                    array_push($errors, "Napačno uporabniško ime ali geslo");
                 }
             }
         } else {
