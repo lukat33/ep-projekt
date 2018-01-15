@@ -1,2 +1,5 @@
 Prodajalec;Ep;pe@gmail.com;salesman;13-01-2018 01:41:30pm
 Prodajalec;Ep;pe@gmail.com;salesman;14-01-2018 05:01:45pm
+Admin;Administratovic;admin@admin.com;admin;15-01-2018 04:28:40am
+Admin;Administratovic;admin@admin.com;admin;15-01-2018 04:29:38am
+Prodajalec;Ep;pe@gmail.com;salesman;15-01-2018 04:33:43am

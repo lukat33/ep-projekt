@@ -37,7 +37,7 @@ if (isset($_POST['login'])) {
         if ($rows > 0) {
             if ($row = mysqli_fetch_assoc($result)) {
                 // De-hash password
-                $role = ($row['role'] == "customer");
+                $role = ($row['role'] == "admin" or $row['role'] == "salesman");
                 $hashedPwdCheck = password_verify($password, $row['password']);
 
                 if ($hashedPwdCheck == false or !$role) {
