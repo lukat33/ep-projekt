@@ -23,13 +23,14 @@ $(document).ready( function() {
         fil = $('#imgInp')[0].files.length;
         console.log(fil);
 
-
         if (fil == 2)
-            $('#labe').val("Izbrali ste " + fil + " datoteki.");
+            $('#labe').val("Izbrali ste " + fil + " sliki.");
         else if (fil > 1)
-            $('#labe').val("Izbrali ste " + fil + " datotek.");
+            $('#labe').val("Izbrali ste " + fil + " slik.");
+        else if (fil == 1)
+            $('#labe').val("Izbrali ste " + fil + " sliko.");
         else
-            $('#labe').val("Izbrali ste " + fil + " datoteko.");
+            $('#labe').val("");
     });
 
     $('.btn-file :file').on('fileselect', function(event, label) {

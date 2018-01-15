@@ -48,17 +48,7 @@
             <div class="col-sm-6">
                 <label class="col-form-label">Opis</label>
                 <div class="form-group">
-                    <textarea class="form-control" name="description" id="description" rows="3"><?php echo $description;?></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <label class="col-form-label" style="margin-right: 20px">Aktiviran</label>
-                    <input type="checkbox" name="togglebtn" <?php echo $status; ?> data-toggle="toggle" data-size="small" id="togglebtn">
+                    <textarea class="form-control" name="description" id="description" rows="6"><?php echo $description;?></textarea>
                 </div>
             </div>
         </div>
@@ -66,30 +56,40 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-md-4">
-                <label>Dodaj sliko</label>
-                <div class="input-group">
-                        <span class="input-group-btn">
-                            <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload" id="imgInp"></span>
-                        </span>
-                    <input type="text" name="tmp_name" class="form-control" readonly>
+                <div class="form-group">
+                    <label class="col-form-label" style="margin-right: 20px">Aktiviran</label>
+                    <input type="checkbox" name="togglebtn" <?php echo $status; ?> data-toggle="toggle" data-size="small" id="togglebtn">
                 </div>
-                <img src="images/<?php echo $imageName;?>" id='img-upload'/>
             </div>
-            <div class="col-sm-2 mar-top-2rem">
-                <button type="submit" name="article_save" class="btn btn-default" style="float: right;" >Shrani artikel</button>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="col-form-label" style="margin-right: 20px">Izbriši slike</label>
+                    <input type="checkbox" name="izbrisiSlike" data-toggle="" data-size="small">
+                </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-3"></div>
-            <div class="col-sm-4">
-<!--                --><?php //for ($i = 0; $i < sizeof($images); $i++) {
-//                    echo '<div class="col-md-1">
-//                        <img src="images/' . $images[$i]["picture"] . '" class="article-img thumb" id='. $i .'>
-//                        </div>';
-//                    }
-//                ?>
+            <div class="col-md-4">
+                <label>Izberite eno ali več slik</label>
+                <div class="input-group">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload[]" id="imgInp" multiple></span>
+                        </span>
+                    <input type="text" name="tmp_name" id="labe" class="form-control" readonly>
+                </div>
             </div>
+            <div class="col-sm-2 mar-top-2rem">
+                <button type="submit" name="article_save" class="btn btn-default" style="float: right;" >Shrani artikel</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-1"> <img class="img-up" src="images/<?php echo $imageName;?>" id='img-upload1'/> </div>
+            <div class="col-sm-1"> <img class="img-up" src="<?php echo $images[0];?>" id='img-upload2'/> </div>
+            <div class="col-sm-1"> <img class="img-up" src="<?php echo $images[1];?>" id='img-upload3'/> </div>
+            <div class="col-sm-1"> <img class="img-up" src="<?php echo $images[2];?>" id='img-upload4'/> </div>
         </div>
 
         <div class="row">

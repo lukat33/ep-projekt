@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-md-4">
-                    <label>Dodaj slike</label>
+                    <label>Izberite eno ali več slik</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <span class="btn btn-default btn-file">Išči… <input type="file" name="fileToUpload[]" id="imgInp" multiple></span>

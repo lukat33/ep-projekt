@@ -19,7 +19,7 @@ if (isset($_POST['article_add'])) {
     $price = cleanData(mysqli_real_escape_string($conn, $_POST['price']));
     $description = cleanData(mysqli_real_escape_string($conn, $_POST['description']));
 
-    if (isset($_FILES['fileToUpload'])) {
+    if (isset($_FILES['fileToUpload']) && !empty($_FILES['fileToUpload']["name"][0])) {
         $myFile = $_FILES['fileToUpload'];
         $fileCount = count($myFile["name"]);
 
@@ -61,7 +61,6 @@ if (isset($_POST['article_add'])) {
 
                 if ($uploadOk == 1) {
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$i], $target_file)) {
-                        usleep(500000);
 
                     } else {
                         array_push($errors, "Prišlo je do napake, poskusi ponovno kasneje");
