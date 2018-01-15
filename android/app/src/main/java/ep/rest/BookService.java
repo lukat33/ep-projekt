@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 public class BookService {
     interface RestApi {
-        String URL = "http://10.0.2.2:63342/ep-projekt/api/";
+        String URL = "http://10.0.2.2:63342/netbeans/ep-projekt/api/";
 
         @GET("android_api.php")
         Call<List<Book>> getAll();
