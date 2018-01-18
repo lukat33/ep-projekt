@@ -50,3 +50,6 @@ mysql -h 127.0.0.1 -u root -p
 - lastname: Test
 - email: ep@gmail.com
 - password: eptest
+
+BAZA
+![Database](db.png)
