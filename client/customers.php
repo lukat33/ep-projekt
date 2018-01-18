@@ -25,7 +25,7 @@ $title = 'Stranke';
         <div class="container">
             <div class="row">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-6" id="salesman-title">
+                <div class="col-sm-6" id="salnaesman-title">
                     <h2>Stranke</h2>
                 </div>
             </div>

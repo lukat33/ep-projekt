@@ -29,9 +29,9 @@ if (isset($_POST['login'])) {
     }
 
     // Check if certificate email is the same as account email
-    if ($_SERVER["SSL_CLIENT_S_DN_Email"] != $email) {
-        array_push($errors, "Napaka certifikata");
-    }
+     if ($_SERVER["SSL_CLIENT_S_DN_Email"] != $email) {
+         array_push($errors, "Napaka certifikata");
+     }
 
     // No errors
     if (count($errors) == 0) {

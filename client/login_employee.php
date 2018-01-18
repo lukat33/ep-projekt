@@ -21,7 +21,7 @@ include('../api/login_employee_api.php');
             <form class="" action="login_employee.php" method="POST">
                 <div class="form-group mar-top-2rem">
                     <h6>Pozdravljeni,
-                        <?php echo $_SERVER["SSL_CLIENT_S_DN_CN"] ?>
+                        <?php if(isset($_SERVER["SSL_CLIENT_S_DN_CN"])) echo $_SERVER["SSL_CLIENT_S_DN_CN"] ?>
                     </h6>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>">
                 </div>
@@ -32,6 +32,12 @@ include('../api/login_employee_api.php');
                 <!-- Validation errors -->
                 <?php include('errors.php'); ?>
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-4" style="margin-top:2rem">
+            <a style="text-align: center;" href="login.php">Prijava za stranke ></a>
         </div>
     </div>
 </div>

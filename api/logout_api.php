@@ -7,15 +7,17 @@
  */
 // Log out
 if (isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: ../client/login.php");
+    logout();
     exit();
 }
 
 function logout() {
+    $role = $_SESSION['u_role'];
     session_unset();
     session_destroy();
-    header("Location: ../client/login.php");
+    if ($role == "customer")
+        header("Location: ../client/login.php");
+    else
+        header("Location: ../client/login_employee.php");
     exit();
 }

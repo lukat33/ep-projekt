@@ -17,7 +17,7 @@ if (isset($_POST['register'])) {
     $street_number = cleanData(mysqli_real_escape_string($conn, $_POST['street_number']));
     $city = cleanData(mysqli_real_escape_string($conn, $_POST['city']));
     $postal_code = cleanData(mysqli_real_escape_string($conn, $_POST['postal_code']));
-    $phone = cleanData(ysqli_real_escape_string($conn, $_POST['phone']));
+    $phone = cleanData(mysqli_real_escape_string($conn, $_POST['phone']));
     $password_1 = cleanData(mysqli_real_escape_string($conn, $_POST['password_1']));
     $password_2 = cleanData(mysqli_real_escape_string($conn, $_POST['password_2']));
 
@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
         $responseData = json_decode($verifyResponse);
 
         if (!$responseData->success) {
-            array_push($errors, "Robotoska verifikacija ni bila uspešna");
+            array_push($errors, "Robotska verifikacija ni bila uspešna");
         }
     }
     // No errors
