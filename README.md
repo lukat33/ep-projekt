@@ -1,40 +1,79 @@
 # Spletna trgovina - Elektronsko poslovanje
+Install Apache, PHP, MySQL and other requirements
+by following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04).
+```shell
+# Clone this project to your local computer's /var/www/
+cd /var/www
+git clone git@github.com:lukatavcer/spletna-trgovina-ep.git
+
+sudo chown -R $USER:$USER /var/www/spletna-trgovina-ep
+
+sudo vim /etc/apache2/sites-available/spletna-trgovina-ep.conf
+# Add this to the spletna-trgovina-ep.conf
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAlias www.spletnatrgovinaep
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/spletna-trgovina-ep
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+# Close and save with ;wq
+
+sudo a2ensite spletna-trgovina-ep
+sudo a2dissite 000-default
+sudo apache2ctl configtest
+sudo systemctl reload apache2
+
+# Visit http://localhost/ in browser.
+```
+
 
 ## Podatkovna baza
-- servername: localhost
-- db name: ep_db
-- username: root
-- password root
 
-**Administrator:**
-- firstname: Admin
-- lastname: Administratovic
-- email: admin@admin.com
-- password: admin1
-  
-**Prodajalec:**
-- firstname: Prodajalec
-- lastname: Ep
-- email: pe@gmail.com
-- password: eptest
-    
-**Stranka:**
-- firstname: Ep
-- lastname: Test
-- email: ep@gmail.com
-- password: eptest
+```shell
+sudo mysql -u root
+# Delete the existing root user and create a new one.
+DROP USER 'root'@'localhost';
 
-![Database](db.png)
+# Disable password policy if installed.
+UNINSTALL COMPONENT 'file://component_validate_password';
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 
-### Postopek za bazo
-
-mysql -h 127.0.0.1 -u root -p\
-CREATE DATABASE ep_db;\
+CREATE DATABASE ep_db;
 exit
 
-// se postavis v direktorij ep-projekt/api/db\
-mysql -h localhost -u root -p ep_db < ep_db.sql\
-mysql -h 127.0.0.1 -u root -p
+# Import the database from the .sql file
+cd /var/www/spletna-trgovina-ep/api/db
+mysql -h localhost -u root -p ep_db < ep_db.sql
+```
+
+- **servername**: localhost
+- **db name**: ep_db
+- **username**: root
+- **password** root
+
+**Administrator:**
+- **firstname**: Admin
+- **lastname**: Administratovic
+- **email**: admin@admin.com
+- **password**: admin1
+  
+**Prodajalec:**
+- **firstname**: Prodajalec
+- **lastname**: Ep
+- **email**: pe@gmail.com
+- **password**: eptest
+    
+**Stranka:**
+- **firstname**: Ep
+- **lastname**: Test
+- **email**: ep@gmail.com
+- **password**: eptest
+
+![Database](db.png)
 
 # Zahteve za e-trgovino
 
