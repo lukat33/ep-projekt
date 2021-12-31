@@ -25,10 +25,37 @@ sudo a2dissite 000-default
 sudo apache2ctl configtest
 sudo systemctl reload apache2
 
+
+
 # Visit http://localhost/ in browser.
 ```
 
 
+## SSL
+1) Import client certificates found in `client_certs` to your browser.
+- adminadmin.com-cert.p12 (pw: admin1)
+- epgmail.com-cert.p12    (pw: eptest)
+- pegmail.com-cert.p12    (pw: eptest)
+
+2) Copy SSL files in `config/ssl` to `/etc/apache2/ssl`.
+```shell
+sudo mkdir /etc/apache2/ssl
+sudo cp config/ssl/* /etc/apache2/ssl/
+```
+
+5) Modify /etc/apache2/sites-available/default-ssl.conf to include the following lines.
+```shell
+SSLCertificateFile	/etc/apache2/ssl/webmaster@localhost-cert.pem
+SSLCertificateKeyFile	 /etc/apache2/ssl/webmaster@localhost-key.pem
+
+SSLCACertificateFile      /etc/apache2/ssl/epcaa-cacert.pem
+SSLCARevocationFile      /etc/apache2/ssl/epcaa-crl.pem
+```
+
+6) Restart Apache
+```shell
+sudo systemctl reload apache2
+```
 ## Podatkovna baza
 
 ```shell
